@@ -1,0 +1,237 @@
+/* FERROUS design tokens */
+:root {
+  --bg-0:#0B0C0D;
+  --bg-1:#131517;
+  --bg-2:#1A1C1E;
+  --bg-3:#22262A;
+  --bg-4:#2D3237;
+  --line:rgba(255,255,255,0.07);
+  --line-2:rgba(255,255,255,0.12);
+  --line-3:rgba(255,255,255,0.22);
+  --text:#ECEEF1;
+  --text-dim:#B8BEC6;
+  --muted:#94A3B8;
+  --dim:#5E646B;
+  --darker:#3A4048;
+  --accent:#F97316;
+  --accent-2:#FB923C;
+  --accent-dim:#C2410C;
+  --ember:#FFB347;
+  --success:#10B981;
+  --warn:#F59E0B;
+  --danger:#EF4444;
+  --grid: rgba(255,255,255,0.035);
+  --display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --serif: 'Instrument Serif', ui-serif, Georgia, serif;
+}
+
+/* base */
+.ferrous, .ferrous *, .ferrous *::before, .ferrous *::after { box-sizing: border-box; }
+.ferrous {
+  font-family: var(--body);
+  color: var(--text);
+  background: var(--bg-0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01","cv11";
+  line-height: 1.5;
+}
+.ferrous h1,.ferrous h2,.ferrous h3,.ferrous h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0;
+  line-height: 1.02;
+}
+.ferrous p { margin: 0; }
+.ferrous button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.ferrous a { color: inherit; text-decoration: none; }
+
+.mono { font-family: var(--mono); font-feature-settings: "zero","ss01"; }
+.upper { text-transform: uppercase; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* utilities */
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.kicker .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.divider { height: 1px; background: var(--line); }
+.vdivider { width: 1px; background: var(--line); }
+
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 22px; padding: 0 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.02);
+}
+.tag.on { color: var(--accent); border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.06); }
+.tag.success { color: var(--success); border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.06); }
+.tag.warn { color: var(--warn); border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.06); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 48px; padding: 0 22px;
+  font-family: var(--display); font-weight: 500; font-size: 14px;
+  letter-spacing: 0.01em;
+  border-radius: 2px;
+  transition: all .25s cubic-bezier(.2,.7,.2,1);
+  position: relative;
+}
+.btn-primary {
+  background: var(--accent); color: #120A04;
+  box-shadow: 0 0 0 1px var(--accent), 0 10px 30px -8px rgba(249,115,22,0.55), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.btn-primary:hover { background: var(--accent-2); transform: translateY(-1px); }
+.btn-ghost {
+  background: rgba(255,255,255,0.025);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.05); }
+.btn-link {
+  background: none; border: 0; padding: 0;
+  font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-dim); cursor: pointer;
+  border-bottom: 1px solid var(--line-2);
+  padding-bottom: 4px;
+  transition: color .2s, border-color .2s;
+}
+.btn-link:hover { color: var(--accent); border-color: var(--accent); }
+.dot-btn {
+  width: 8px; height: 8px; padding: 0; border-radius: 50%;
+  background: var(--line-3); border: 0; cursor: pointer;
+}
+.dot-btn-active { background: var(--accent); width: 24px; border-radius: 4px; }
+.btn .arrow { width: 14px; height: 1.5px; background: currentColor; position: relative; }
+.btn .arrow::after { content:''; position:absolute; right:-1px; top:-3.5px; width:8px; height:8px; border-top:1.5px solid currentColor; border-right:1.5px solid currentColor; transform: rotate(45deg); }
+
+/* Surfaces */
+.surface {
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line);
+  position: relative;
+}
+.surface-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(20px);
+}
+
+/* Blueprint grid pattern */
+.blueprint {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.blueprint-fine {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 10px 10px, 10px 10px, 80px 80px, 80px 80px;
+}
+
+/* Crosshair corner — kept in markup but visually neutralised for the editorial system.
+   Re-enabled selectively via .with-corners on a parent. */
+.corner { display: none; }
+.with-corners > .corner {
+  display: block;
+  position: absolute; width: 10px; height: 10px;
+  border-color: var(--accent);
+  border-style: solid; border-width: 0;
+}
+.with-corners > .corner.tl { top: -1px; left: -1px; border-top-width: 1px; border-left-width: 1px; }
+.with-corners > .corner.tr { top: -1px; right: -1px; border-top-width: 1px; border-right-width: 1px; }
+.with-corners > .corner.bl { bottom: -1px; left: -1px; border-bottom-width: 1px; border-left-width: 1px; }
+.with-corners > .corner.br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
+
+/* Beam SVG bg helper */
+.scan-line {
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(249,115,22,0.45), transparent);
+}
+
+/* Ember glow */
+.glow-ember {
+  background: radial-gradient(60% 80% at 50% 100%, rgba(249,115,22,0.35), transparent 70%);
+}
+
+/* progress bar industrial */
+.bar { position: relative; height: 6px; background: rgba(255,255,255,0.06); overflow: hidden; }
+.bar > i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+.bar.steel > i { background: linear-gradient(90deg, var(--muted), var(--text)); }
+
+/* Steel beam isometric placeholder */
+.beam-iso {
+  --c1: #2D3237;
+  --c2: #1A1C1E;
+  --c3: #404750;
+  background:
+    linear-gradient(135deg, transparent 49.5%, rgba(255,255,255,0.05) 49.5%, rgba(255,255,255,0.05) 50.5%, transparent 50.5%) 0 0/24px 24px,
+    linear-gradient(180deg, var(--c3), var(--c2));
+}
+
+/* skeleton placeholder for product imagery */
+.placeholder {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 14px),
+    linear-gradient(180deg, #1f2226, #15171a);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 11px; color: var(--dim);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  position: relative; overflow: hidden;
+}
+.placeholder::before {
+  content: ''; position:absolute; inset: 8px;
+  border: 1px dashed rgba(255,255,255,0.06);
+}
+
+/* Mini chart dot grid */
+.dotgrid { background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 12px 12px; }
+
+/* shimmer for active/processing state */
+@keyframes ferrous-shimmer { 0%{transform:translateX(-100%);} 100%{transform:translateX(100%);} }
+.shimmer { position: relative; overflow: hidden; }
+.shimmer::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(249,115,22,0.18), transparent);
+  animation: ferrous-shimmer 2.4s linear infinite;
+}
+
+@keyframes ferrous-pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+.pulse { animation: ferrous-pulse 2s ease-in-out infinite; }
+
+@keyframes ferrous-spin { to { transform: rotate(360deg); } }
+.spin { animation: ferrous-spin 18s linear infinite; }
+
+/* big-number stencil */
+.stencil {
+  font-family: var(--display);
+  font-weight: 700;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+/* scrollbars off inside artboards */
+.ferrous *::-webkit-scrollbar { display: none; }
+.ferrous * { scrollbar-width: none; }

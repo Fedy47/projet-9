@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"c:\\\\Users\\\\fedim\\\\OneDrive\\\\Desktop\\\\New folder\\\\projet\\\\node_modules\\\\next\\\\dist\\\\docs\" 2>nul || echo \"Directory not found\")",
+      "Bash(ls \"c:\\\\Users\\\\fedim\\\\OneDrive\\\\Desktop\\\\New folder\\\\projet\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\\\\02-guides\" 2>nul | head -30)",
+      "Bash(ls \"c:\\\\Users\\\\fedim\\\\OneDrive\\\\Desktop\\\\New folder\\\\projet\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\\\\02-guides\" 2>nul | grep -i upgrad)",
+      "Bash(ls \"c:\\\\Users\\\\fedim\\\\OneDrive\\\\Desktop\\\\New folder\\\\projet\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\\\\02-guides\\\\upgrading\" 2>nul)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(tee /tmp/ferrous-dev.log)",
+      "Bash(curl -s -o /tmp/landing-response.html -w \"HTTP %{http_code} size=%{size_download}\\\\n\" http://localhost:3939/)",
+      "Bash(curl -s -o /dev/null -w \"/projects HTTP %{http_code}\\\\n\" http://localhost:3939/projects)",
+      "Bash(curl -s -o /dev/null -w \"/estimator HTTP %{http_code}\\\\n\" http://localhost:3939/estimator)",
+      "Bash(curl -s -o /dev/null -w \"/portal HTTP %{http_code}\\\\n\" http://localhost:3939/portal)",
+      "Bash(curl -s -o /dev/null -w \"/admin HTTP %{http_code}\\\\n\" http://localhost:3939/admin)",
+      "Bash(grep -oE \"\\(FERROUS|We build|with steel|capabilities|Maelstrom|Helix|sealed quote|impossible|drawing\\)\" /tmp/landing-response.html | sort -u)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /tmp/admin-response.html http://localhost:3939/admin)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\fedim\\OneDrive\\Desktop\\New folder"
+    ]
+  }
+}
